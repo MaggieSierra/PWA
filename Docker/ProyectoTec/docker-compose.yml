@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+ db:
+  image: maggiesm/proyecto-tec-mysql
+  restart: always
+  environment:
+   MYSQL_DATABASE: 'proyecto_tec'
+   MYSQL_ROOT_PASSWORD : 'root'
+  container_name: mysql-proyecto-tec
+  ports:
+   - '3306:3306'
+ web:
+  image: maggiesm/proyecto-tec-tomcat
+  restart: always
+  container_name: tomcat-proyecto-tec
+  ports:
+   - '8080:8080'

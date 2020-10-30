@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+ db:
+  image: maggiesm/proyecto-alumnoscrud-mysql
+  restart: always
+  environment:
+   MYSQL_DATABASE: 'lista_alumnos'
+   MYSQL_ROOT_PASSWORD : 'root'
+  container_name: mysql-proyecto-alumnoscrud
+  ports:
+   - '3306:3306'
+ web:
+  image: maggiesm/proyecto-alumnoscrud-tomcat
+  restart: always
+  container_name: tomcat-proyecto-alumnoscrud
+  ports:
+   - '8080:8080'
